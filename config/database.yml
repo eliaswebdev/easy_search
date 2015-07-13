@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: root
+  port: 5432  
+
+development:
+  <<: *default
+  database: easysearch_development
+
+
+test:
+  <<: *default
+  database: easysearch_test
+
+
+production:
+  <<: *default
+  database: easysearch_production
+  username: easysearch
+  password: <%= ENV['EASYSEARCH_DATABASE_PASSWORD'] %>
